@@ -10,17 +10,17 @@ export const SearchBar = () => {
       </div>
 
       <div className="flex-1 relative flex items-center">
-        <div className="absolute left-4 text-gray-500">
-          <SearchIcon className="h-5 w-5" />
+        <div className="absolute left-3 lg:left-4 text-gray-500">
+          <SearchIcon className="h-4 w-4 lg:h-5 lg:w-5" />
         </div>
         <input
           type="text"
           placeholder="What are you looking for..."
-          className="w-full bg-transparent py-3 pl-12 pr-4 text-sm outline-none"
+          className="w-full bg-transparent py-2 lg:py-3 pl-9 lg:pl-12 pr-4 text-xs lg:text-sm outline-none"
         />
       </div>
       
-      <button className="mr-1.5 rounded bg-brand px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-hover">
+      <button className="mr-1 lg:mr-1.5 rounded bg-brand px-4 lg:px-6 py-1.5 lg:py-2 text-xs lg:text-sm font-semibold text-white transition-colors hover:bg-brand-hover">
         Search
       </button>
     </div>

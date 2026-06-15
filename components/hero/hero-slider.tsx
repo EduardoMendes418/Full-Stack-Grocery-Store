@@ -32,7 +32,7 @@ export const HeroSlider = () => {
   }, [emblaApi]);
 
   return (
-    <section className="relative overflow-hidden bg-[#F3F5F9]">
+    <section className="relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 lg:px-8 py-4 lg:py-6">
         <div className="overflow-hidden rounded-xl lg:rounded-2xl shadow-sm" ref={emblaRef}>
           <div className="flex">

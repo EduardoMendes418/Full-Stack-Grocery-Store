@@ -18,6 +18,12 @@ const slides = [
     title: "Best Deals on Seasonal Fruits",
     description: "Up to 50% off on selected items. Don't miss out on our limited-time seasonal offers.",
   },
+  {
+    id: 3,
+    image: "/img/choco.png",
+    title: "Premium Chocolates & Sweets",
+    description: "Indulge in our collection of fine chocolates and delicious desserts, perfect for every occasion.",
+  },
 ];
 
 export const HeroSlider = () => {

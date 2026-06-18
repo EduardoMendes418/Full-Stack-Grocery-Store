@@ -82,7 +82,7 @@ export const TopCategories = () => {
           {categories.map((category) => (
             <Link
               key={category.id}
-              href={`/search?category=${category.slug}`}
+              href={`/products?category=${category.slug}`}
               className="group flex flex-col items-center transition-all"
             >
               <div className="relative w-24 h-24 lg:w-28 lg:h-28 mb-4 rounded-full bg-white flex items-center justify-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] group-hover:shadow-[0_8px_25px_-5px_rgba(0,0,0,0.1)] transition-all duration-300">

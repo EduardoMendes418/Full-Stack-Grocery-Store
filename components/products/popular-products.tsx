@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
-import { PlusIcon } from "../ui/icons";
+import { ProductCard } from "./product-card";
+import { Product } from "@/types/product";
 
-const products = [
+const products: Product[] = [
   {
     id: 1,
     name: "Fresh Fuji Apples",
@@ -69,40 +69,11 @@ export const PopularProducts = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 lg:gap-6">
           {products.map((product) => (
-            <div
-              key={product.id}
-              className="group bg-white rounded-lg border border-gray-100 p-3 lg:p-4 hover:shadow-xl hover:border-brand/20 transition-all duration-300 flex flex-col h-full"
-            >
-              <Link href={`/products/${product.slug}`} className="relative aspect-square mb-4 overflow-hidden rounded-md block">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </Link>
-              
-              <div className="flex flex-col flex-1">
-                <div className="mb-2">
-                  <span className="text-sm font-bold text-brand">${product.price.toFixed(2)}</span>
-                  <span className="text-xs text-gray-500 ml-1">/ {product.unit}</span>
-                </div>
-                
-                <Link href={`/products/${product.slug}`}>
-                  <h3 className="text-sm font-medium text-gray-800 line-clamp-2 hover:text-brand transition-colors mb-4">
-                    {product.name}
-                  </h3>
-                </Link>
-                
-                <button className="mt-auto w-full flex items-center justify-center gap-2 bg-gray-50 text-gray-800 py-2 rounded-md text-sm font-bold transition-all hover:bg-brand hover:text-white group/btn">
-                  <PlusIcon className="w-4 h-4" />
-                  Add To Cart
-                </button>
-              </div>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
     </section>
   );
 };
+

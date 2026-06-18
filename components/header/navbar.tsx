@@ -4,7 +4,7 @@ import { MenuIcon, ChevronDownIcon } from "../ui/icons";
 export const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Shops", href: "/shops" },
+    { name: "Shop", href: "/products" },
     { name: "Offers", href: "/offers" },
     { name: "Contact", href: "/contact" },
     { name: "Pages", href: "/pages" },

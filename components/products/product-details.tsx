@@ -7,6 +7,8 @@ import { PlusIcon, MinusIcon, CartIcon, HeartIcon } from "@/components/ui/icons"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { ProductGrid } from "./product-grid";
 
+import { useCartStore } from "@/hooks/use-cart-store";
+
 interface ProductDetailsProps {
   product: Product;
   relatedProducts: Product[];
@@ -15,10 +17,15 @@ interface ProductDetailsProps {
 export const ProductDetails = ({ product, relatedProducts }: ProductDetailsProps) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(product.image);
+  const addItem = useCartStore((state) => state.addItem);
 
   const handleQuantityChange = (type: "inc" | "dec") => {
     if (type === "inc") setQuantity((prev) => prev + 1);
     else if (type === "dec" && quantity > 1) setQuantity((prev) => prev - 1);
+  };
+
+  const handleAddToCart = () => {
+    addItem(product, quantity);
   };
 
   const images = product.gallery && product.gallery.length > 0 
@@ -116,7 +123,10 @@ export const ProductDetails = ({ product, relatedProducts }: ProductDetailsProps
                   </button>
                 </div>
 
-                <button className="flex-1 min-w-[200px] h-12 bg-brand text-white rounded-md font-bold flex items-center justify-center gap-3 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20">
+                <button 
+                  onClick={handleAddToCart}
+                  className="flex-1 min-w-[200px] h-12 bg-brand text-white rounded-md font-bold flex items-center justify-center gap-3 hover:bg-brand/90 transition-all shadow-lg shadow-brand/20"
+                >
                   <CartIcon className="w-5 h-5" />
                   Add to Cart
                 </button>

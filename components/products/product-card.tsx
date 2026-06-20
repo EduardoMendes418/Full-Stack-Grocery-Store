@@ -1,13 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { PlusIcon } from "../ui/icons";
 import { Product } from "@/types/product";
+import { useCartStore } from "@/hooks/use-cart-store";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem(product, 1);
+  };
+
   return (
     <div
       className="group bg-white rounded-lg border border-gray-100 p-3 lg:p-4 hover:shadow-xl hover:border-brand/20 transition-all duration-300 flex flex-col h-full relative"
@@ -43,7 +54,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </h3>
         </Link>
         
-        <button className="mt-auto w-full flex items-center justify-center gap-2 bg-gray-50 text-gray-800 py-2 rounded-md text-sm font-bold transition-all hover:bg-brand hover:text-white group/btn">
+        <button 
+          onClick={handleAddToCart}
+          className="mt-auto w-full flex items-center justify-center gap-2 bg-gray-50 text-gray-800 py-2 rounded-md text-sm font-bold transition-all hover:bg-brand hover:text-white group/btn"
+        >
           <PlusIcon className="w-4 h-4" />
           Add
         </button>

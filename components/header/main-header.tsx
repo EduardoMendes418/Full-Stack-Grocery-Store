@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { SearchBar } from "../ui/search-bar";
 import { Logo } from "../ui/logo";
-import { HeartIcon, ShoppingBagIcon, UserIcon, MenuIcon } from "../ui/icons";
+import { HeartIcon, ShoppingBagIcon, UserIcon, MenuIcon, ChevronDownIcon } from "../ui/icons";
 import { useCartStore } from "@/hooks/use-cart-store";
 
 export const MainHeader = () => {
@@ -31,8 +31,9 @@ export const MainHeader = () => {
 
         <div className="flex items-center gap-3 sm:gap-5 lg:gap-6 text-gray-700">
           {/* Language Switcher Placeholder */}
-          <div className="hidden xl:flex items-center gap-2 cursor-pointer hover:text-brand">
+          <div className="hidden xl:flex items-center gap-1.5 cursor-pointer hover:text-brand">
             <span className="text-sm font-semibold uppercase">English</span>
+            <ChevronDownIcon className="h-3 w-3 text-gray-400" />
           </div>
 
           <div className="relative cursor-pointer hover:text-brand hidden sm:block">
